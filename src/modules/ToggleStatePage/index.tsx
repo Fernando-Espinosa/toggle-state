@@ -22,15 +22,6 @@ const ToggleStatePage = () => {
     { id: 'test8', content: 'test8' },
   ];
 
-  // const importantInfo = "Important Note: This update addresses the requirements of Question 4 in our coding challenge. To ensure a
-  //         seamless user experience, we immediately persist the toggle state for
-  //         each individual card as soon as it’s clicked. Since users expect rapid
-  //         interactions without waiting for loading animations, we use an
-  //         optimistic update strategy. With this approach, the UI reflects the
-  //         expected state instantly, and if the underlying action fails, the
-  //         state will revert to its previous setting. For demonstration purposes,
-  //         please try toggling Card 6 to see how the error scenario is handled."
-
   return (
     <Container sx={{ mt: 3 }}>
       <ButtonBox>
@@ -55,15 +46,3 @@ const ToggleStatePage = () => {
 };
 
 export default ToggleStatePage;
-// The best way to save the toggle state to the database in React, is using a library like react-query
-// It features:
-// 1. Automatic caching: reduces redundant network requests.
-// 2. Built-in error handling and retries: handles errors and can retry failed requests automatically.
-// 3. Simplified asynchronous logic: manages loading, error, and success states seamlessly,
-
-// IMPORTANT NOTE: This is to solve the question 4 from the coding challenge.
-// Since we want to save the toggle state of each individual card, we need to do it whenever a toggle is clicked.
-// But we cannot create a loading animation or do nothing, because it's a bad user experience and users
-// expect immediate interactions, so in this case we apply an optimistic update.
-// An optimistic update creates an action and if the action is succesful it does nothing (keep togle)
-// but if it fails it rollsback to the previous state
