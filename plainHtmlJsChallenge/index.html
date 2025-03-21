@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Coding Challenge</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS from CDN for caching benefits -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container my-3">
+      <div class="row" id="row1">
+        <div class="grid-item" data-id="test1">
+          <div class="item-header">
+            <span class="caret">▼</span>
+          </div>
+          <div class="item-content">test1</div>
+        </div>
+        <div class="grid-item" data-id="test2">
+          <div class="item-header">
+            <span class="caret">▼</span>
+          </div>
+          <div class="item-content">test2</div>
+        </div>
+        <div class="grid-item" data-id="test3">
+          <div class="item-header">
+            <span class="caret">▼</span>
+          </div>
+          <div class="item-content">test3</div>
+        </div>
+        <div class="grid-item" data-id="test4">
+          <div class="item-header">
+            <span class="caret">▼</span>
+          </div>
+          <div class="item-content">test4</div>
+        </div>
+        <div class="grid-item" data-id="test5">
+          <div class="item-header">
+            <span class="caret">▼</span>
+          </div>
+          <div class="item-content">test5</div>
+        </div>
+        <div class="grid-item" data-id="test6">
+          <div class="item-header">
+            <span class="caret">▼</span>
+          </div>
+          <div class="item-content">test6</div>
+        </div>
+      </div>
+
+      <div class="row" id="row2">
+        <div class="grid-item" data-id="test7">
+          <div class="item-header">
+            <span class="caret">▼</span>
+          </div>
+          <div class="item-content">test7</div>
+        </div>
+        <div class="grid-item" data-id="test8">
+          <div class="item-header">
+            <span class="caret">▼</span>
+          </div>
+          <div class="item-content">test8</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Function to call the API endpoint and save the toggle state
+      function updateToggleState(itemId, isVisible) {
+        fetch(`https://exampleApi.com/toggleState/${itemId}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id: gridItem.dataset.id, toggle: isVisible }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log('PATCH response:', data);
+          })
+          .catch((error) => {
+            console.error('Error updating toggle state:', error);
+          });
+      }
+      document.querySelectorAll('.item-header').forEach((header) => {
+        header.addEventListener('click', () => {
+          const gridItem = header.parentElement;
+          const contentDiv = gridItem.querySelector('.item-content');
+          const caret = header.querySelector('.caret');
+
+          if (
+            contentDiv.style.display === 'none' ||
+            contentDiv.style.display === ''
+          ) {
+            contentDiv.style.display = 'block';
+            caret.textContent = '▼';
+          } else {
+            contentDiv.style.display = 'none';
+            caret.textContent = '▲';
+          }
+
+          const isVisible = contentDiv.style.display !== 'none';
+          // Note: this will not work because we are using a mock endpoint
+          // The idea is to send the following payload to a PATCH endpoint
+          // payload: {id: test1, toggle: true}
+          // updateToggleState(gridItem.dataset.id, isVisible);
+        });
+      });
+    </script>
+  </body>
+</html>

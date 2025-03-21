@@ -1,0 +1,28 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 0 10px 10px 10px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: flex-end;
+}
+
+.item-header {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.item-content {
+  margin-top: 5px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

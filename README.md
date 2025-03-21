@@ -15,3 +15,5 @@ Run dev locally:
 ```bash
 yarn start
 ```
+
+The solution for the plain html/Js/css problem is in ./plainHtmlJsChallenge
