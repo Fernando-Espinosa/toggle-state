@@ -16,4 +16,4 @@ Run dev locally:
 yarn start
 ```
 
-The solution for the plain html/Js/css problem is in ./plainHtmlJsChallenge
+## The solution for the plain html/Js/css problem is in ./plainHtmlJsChallenge
