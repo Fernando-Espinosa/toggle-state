@@ -9,3 +9,9 @@ Install the dependencies by running:
 ```bash
 yarn install
 ```
+
+Run dev locally:
+
+```bash
+yarn start
+```
