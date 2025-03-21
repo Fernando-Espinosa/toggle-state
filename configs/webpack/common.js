@@ -14,6 +14,11 @@ module.exports = {
       'react/jsx-runtime.js': 'react/jsx-runtime',
     },
   },
+  output: {
+    filename: '[name].[contenthash].min.js',
+    path: resolve(__dirname, '../../dist'),
+    publicPath: '/',
+  },
   context: resolve(__dirname, '../../src'),
   module: {
     rules: [
