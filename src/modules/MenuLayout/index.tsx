@@ -98,7 +98,7 @@ export default function MenuLayout() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            {`<----Check route changes`}
+            {`<----Check route changes - (Answer to question #2)`}
           </Typography>
         </Toolbar>
       </AppBar>
