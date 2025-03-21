@@ -1,37 +1,37 @@
 // shared config (dev and prod)
-const { resolve } = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
-require("dotenv").config({ path: "./.env" });
-const { RetryChunkLoadPlugin } = require("webpack-retry-chunk-load-plugin");
+const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+require('dotenv').config({ path: './.env' });
+const { RetryChunkLoadPlugin } = require('webpack-retry-chunk-load-plugin');
 
 module.exports = {
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
-    modules: ["src", "node_modules"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    modules: ['src', 'node_modules'],
     alias: {
-      "react/jsx-dev-runtime.js": "react/jsx-dev-runtime",
-      "react/jsx-runtime.js": "react/jsx-runtime",
+      'react/jsx-dev-runtime.js': 'react/jsx-dev-runtime',
+      'react/jsx-runtime.js': 'react/jsx-runtime',
     },
   },
-  context: resolve(__dirname, "../../src"),
+  context: resolve(__dirname, '../../src'),
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(scss|sass)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.m?js$/,
@@ -43,14 +43,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: 'index.html',
       hash: true,
     }),
     new webpack.ProvidePlugin({
-      process: "process/browser",
+      process: 'process/browser',
     }),
     new webpack.DefinePlugin({
-      "process.env": JSON.stringify(process.env),
+      'process.env': JSON.stringify(process.env),
     }),
     new RetryChunkLoadPlugin({}),
   ],
