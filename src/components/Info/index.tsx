@@ -27,8 +27,8 @@ function ToggleInfoDialog() {
         <DialogTitle id="dialog-title">Project Information</DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            1. To emulate a database locally, we utilize the browser's local
-            storage.
+            1. This is to solve question 4. To emulate a database locally, we
+            utilize the browser's local storage.
           </Typography>
           <Typography gutterBottom>
             2. Each time a user toggles a card, the updated state is saved in
